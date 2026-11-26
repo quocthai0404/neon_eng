@@ -1,0 +1,32 @@
+name: NeonEnglish
+options:
+  bundleIdPrefix: com.neonenglish
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    GENERATE_INFOPLIST_FILE: "YES"
+    INFOPLIST_KEY_CFBundleDisplayName: "Neon English"
+targets:
+  NeonEnglish:
+    type: application
+    platform: iOS
+    sources:
+      - path: NeonEnglish
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.neonenglish.app
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+schemes:
+  NeonEnglish:
+    build:
+      targets:
+        NeonEnglish: all
+    run:
+      config: Debug
+    archive:
+      config: Release
