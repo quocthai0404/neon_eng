@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Check out source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install XcodeGen
         run: brew install xcodegen
@@ -57,7 +57,7 @@ jobs:
           (cd "$IPA_ROOT" && /usr/bin/zip -qry "$RUNNER_TEMP/NeonEnglish-unsigned.ipa" Payload)
 
       - name: Upload unsigned IPA
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: neon-english-ios-unsigned-ipa
           path: ${{ runner.temp }}/NeonEnglish-unsigned.ipa
@@ -168,7 +168,7 @@ jobs:
 
       - name: Upload signed IPA
         if: steps.signing.outputs.configured == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: neon-english-ios-signed-ipa
           path: ${{ runner.temp }}/NeonEnglishSignedExport/*.ipa
