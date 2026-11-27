@@ -24,6 +24,7 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     info:
+      path: NeonEnglish/Info.plist
       properties:
         UILaunchScreen:
           UIColorName: LaunchBackground
