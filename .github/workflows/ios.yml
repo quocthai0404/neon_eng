@@ -46,6 +46,31 @@ jobs:
           CODE_SIGNING_ALLOWED=NO
           build
 
+      - name: Verify launch screen, app icon, and device family
+        run: |
+          set -euo pipefail
+          APP_PATH="$RUNNER_TEMP/NeonEnglishDerivedData/Build/Products/Release-iphoneos/NeonEnglish.app"
+          PLIST="$APP_PATH/Info.plist"
+          test -d "$APP_PATH"
+
+          LAUNCH_COLOR="$(/usr/libexec/PlistBuddy -c 'Print :UILaunchScreen:UIColorName' "$PLIST")"
+          ICON_NAME="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIcons:CFBundlePrimaryIcon:CFBundleIconName' "$PLIST")"
+          DEVICE_FAMILY="$(/usr/libexec/PlistBuddy -c 'Print :UIDeviceFamily:0' "$PLIST")"
+          test "$LAUNCH_COLOR" = "LaunchBackground"
+          test "$ICON_NAME" = "AppIcon"
+          test "$DEVICE_FAMILY" = "1"
+          if /usr/libexec/PlistBuddy -c 'Print :UIDeviceFamily:1' "$PLIST" >/dev/null 2>&1; then
+            echo "The app unexpectedly includes the iPad device family." >&2
+            exit 1
+          fi
+
+          {
+            echo "### iPhone package metadata"
+            echo "- Launch screen: $LAUNCH_COLOR"
+            echo "- App icon: $ICON_NAME"
+            echo "- Device family: iPhone"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Package unsigned IPA
         run: |
           set -euo pipefail

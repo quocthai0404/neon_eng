@@ -4,6 +4,7 @@
 
 - Stitch project: `projects/4757481470228297368` — **TOEIC Study Workspace Dashboard**.
 - The project contains separate desktop concepts and a 19-screen iPhone set. For native iOS implementation, use the `MOBILE`, 390 × 884 screens listed below; do not shrink the desktop screens into phone layouts.
+- The approved **Neon English — Brand & Logo System** screen is `node_12926058529540440067`. Its default, dark, and tinted iOS AppIcon masters are exported at 1024 × 1024 in `NeonEnglish/Assets.xcassets/AppIcon.appiconset/`; keep this Stitch artwork as the source of truth instead of redrawing the mark.
 - Screen HTML can be retrieved through Codex Stitch MCP with `get_screen`, then `download_file` using `htmlCode.name`.
 - Codex Stitch MCP access was verified on 2026-11-26. Authentication is provided by a user-global header helper; never copy the API key into this repository or print it.
 

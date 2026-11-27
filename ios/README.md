@@ -46,5 +46,6 @@ For a review build installed on a specific iPhone, register that device's UDID i
 - Bundle identifier: `com.neonenglish.app`
 - Display name: `Neon English`
 - External Swift packages: none
-- Assets: `NeonEnglish/Assets.xcassets` (AccentColor `#1D4ED8`, Stitch-derived vocabulary and Part 1 photos; app icon export still pending)
+- Assets: `NeonEnglish/Assets.xcassets` (AccentColor `#1D4ED8`, Stitch-derived vocabulary/Part 1 photos, and the approved 1024 × 1024 AppIcon in default, dark, and tinted appearances)
+- App packaging: XcodeGen selects `AppIcon`, includes `UILaunchScreen` using the app canvas color, and explicitly targets iPhone device family.
 - Next: generate/build on macOS, inspect all 19 screens in iPhone Simulator, and make any visual corrections. Keep backend/data integration out until separately requested.
